@@ -1,4 +1,4 @@
-//my cord
+//my program
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -26,7 +26,7 @@ int main(){
     return 0;
 }
 
-// answer cord
+// answer program
 /*#include <iostream>
 using namespace std;
 
