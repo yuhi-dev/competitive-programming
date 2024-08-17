@@ -1,44 +1,28 @@
-//my program
-/*#include <iostream>
-#include <vector>
-using namespace std;
-
-int D, N;
-vector<int> L;
-vector<int> R;
-
-int main(){
-    cin >> D >> N;
-    L.resize(N);
-    R.resize(N);
-    for (int i = 0; i < N; i++){
-        cin >> L.at(i) >> R.at(i);
-    }
-
-}*/
-
-//answer program
 #include <iostream>
 using namespace std;
 
-int N, L[100009], R[100009];
 int D, B[100009];
+int N, L[100009], R[100009];
 int Answer[100009];
 
-int main() {
-	// 入力
-	cin >> D >> N;
-	for (int i = 1; i <= N; i++) cin >> L[i] >> R[i];
+int main(){
+    cin >> D;
+    cin >> N;
+    for (int i = 1; i <= N; i++) cin >> L[i] >> R[i];
 
-	// 前日比に加算
-	for (int i = 1; i <= N; i++) {
-		B[L[i]] += 1;
-		B[R[i] + 1] -= 1;
-	}
+    for (int i = 1; i <= N; i++){
+        B[L[i]] += 1;
+        B[R[i] + 1] -= 1;
+        //cout << B[L[i]] << endl;
+		//cout << B[R[i] + 1];
+    }
 
-	// 累積和をとる → 出力
-	Answer[0] = 0;
-	for (int d = 1; d <= D; d++) Answer[d] = Answer[d - 1] + B[d];
-	for (int d = 1; d <= D; d++) cout << Answer[d] << endl;
-	return 0;
+    Answer[0] = 0;
+    for (int j = 1; j <= D; j++){
+        Answer[j] = Answer[j-1] + B[j];
+        cout << Answer[j] << endl;
+		//cout << B[j];
+    }
+	//cout << endl;
+    return 0;
 }
